@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>照片展示</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .photo-container {
+            margin: 20px 0;
+        }
+        .photo {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>照片展示</h1>
+
+        <div class="photo-container">
+            <!-- 使用相对路径或确保 url_for 正确解析 -->
+            <img id="initialPhoto" class="photo" src="ff8bbe42afe53f8fa15defc2ae62ea7.jpg" alt="初始照片">
+            <img id="tenguPhoto" class="photo hidden" src="EatingtheMoon.png" alt="天狗照片">
+        </div>
+
+        <button id="showTenguBtn" class="btn">查看天狗</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const showTenguBtn = document.getElementById('showTenguBtn');
+            const initialPhoto = document.getElementById('initialPhoto');
+            const tenguPhoto = document.getElementById('tenguPhoto');
+
+            showTenguBtn.addEventListener('click', function() {
+                // 隐藏初始照片
+                initialPhoto.classList.add('hidden');
+
+                // 显示天狗照片
+                tenguPhoto.classList.remove('hidden');
+
+                // 隐藏按钮
+                showTenguBtn.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
