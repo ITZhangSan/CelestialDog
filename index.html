@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>照片展示</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .photo-container {
+            margin: 20px 0;
+        }
+        .photo {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        .photo-description {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .hidden {
+            display: none;
+        }
+        audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>照片展示</h1>
+
+        <div class="photo-container">
+            <img id="initialPhoto" class="photo" src="ff8bbe42afe53f8fa15defc2ae62ea7.jpg" alt="初始照片">
+            <div id="initialPhotoDesc" class="photo-description">这个是月亮</div>
+            <img id="tenguPhoto" class="photo hidden" src="EatingtheMoon.png" alt="天狗照片">
+            <div id="tenguPhotoDesc" class="photo-description hidden">这个是天狗</div>
+        </div>
+
+        <button id="showTenguBtn" class="btn">查看天狗</button>
+
+        <!-- 添加音频播放器 -->
+        <audio id="backgroundAudio" controls>
+            <source src="M800002PEyle3ZaThJ.mp3" type="audio/mpeg">
+            您的浏览器不支持音频播放。
+        </audio>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const showTenguBtn = document.getElementById('showTenguBtn');
+            const initialPhoto = document.getElementById('initialPhoto');
+            const tenguPhoto = document.getElementById('tenguPhoto');
+            const initialPhotoDesc = document.getElementById('initialPhotoDesc');
+            const tenguPhotoDesc = document.getElementById('tenguPhotoDesc');
+            const backgroundAudio = document.getElementById('backgroundAudio');
+
+            showTenguBtn.addEventListener('click', function() {
+                // 隐藏初始照片和描述
+                initialPhoto.classList.add('hidden');
+                initialPhotoDesc.classList.add('hidden');
+
+                // 显示天狗照片和描述
+                tenguPhoto.classList.remove('hidden');
+                tenguPhotoDesc.classList.remove('hidden');
+
+                // 隐藏按钮
+                showTenguBtn.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
